@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akshaya Family Restaurant | Premium Telangana Dining Siddipet</title>
+    
+    <!-- 1. Premium Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400&family=Plus+Jakarta+Sans:wght@200;300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    
+    <!-- 2. Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- 3. Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- 4. Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'akshaya-red': '#D32F2F',
+                        'akshaya-gold': '#C5A059',
+                        'leaf-forest': '#1B2E1C',
+                        'leaf-lime': '#D4E157',
+                        'surface-dark': '#0F0F0F',
+                        'surface-light': '#1A1A1A',
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        header: ['"Cinzel"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        script: ['"Great Vibes"', 'cursive'],
+                    },
+                    boxShadow: {
+                        'gold-glow': '0 0 20px rgba(197, 160, 89, 0.15)',
+                        'premium': '0 25px 60px -15px rgba(0, 0, 0, 0.7)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- 5. Custom CSS -->
+    <style>
+        body {
+            background-color: #0F0F0F;
+            color: #F5F5F5;
+            /* Prevent horizontal scroll from animations */
+            overflow-x: hidden; 
+        }
+
+        /* Reveal Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        
+        /* This class is added by JS to show elements */
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hero-bg {
+            background: linear-gradient(to right, rgba(15, 15, 15, 0.95), rgba(15, 15, 15, 0.4)), url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Parallax effect */
+        }
+
+        .nav-blur {
+            background: rgba(15, 15, 15, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(197, 160, 89, 0.1);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        /* Custom selection color */
+        ::selection {
+            background: #C5A059;
+            color: #0F0F0F;
+        }
+
+        /* Animated border */
+        .premium-border {
+            position: relative;
+        }
+        .premium-border::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: #C5A059;
+        }
+
+        /* Smooth Anchor Scrolling offset for fixed header */
+        html {
+            scroll-padding-top: 100px;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-200">
+
+    <!-- Premium Announcement Bar -->
+    <div class="bg-black text-akshaya-gold text-[10px] md:text-xs py-2.5 text-center tracking-[0.3em] uppercase font-bold border-b border-akshaya-gold/20 relative z-50">
+        <span class="flex items-center justify-center gap-4">
+            <span class="hidden md:inline-block w-12 h-px bg-akshaya-gold/30"></span>
+            Legacy of Flavor Since 2007 • Siddipet's Finest
+            <span class="hidden md:inline-block w-12 h-px bg-akshaya-gold/30"></span>
+        </span>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav-blur fixed w-full z-40 transition-all duration-500 top-[37px] md:top-[37px]" id="navbar">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between h-20 md:h-24 items-center">
+                <!-- Brand -->
+                <a href="#" class="flex flex-col group">
+                    <span class="font-header font-bold text-2xl text-white tracking-widest leading-none group-hover:text-akshaya-gold transition-colors duration-500">AKSHAYA</span>
+                    <span class="text-[9px] text-akshaya-gold font-bold tracking-[0.5em] uppercase mt-1">Family Restaurant</span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-12">
+                    <a href="#home" class="text-xs uppercase tracking-widest text-gray-400 hover:text-white transition-all font-semibold hover:text-akshaya-gold">Home</a>
+                    <a href="#story" class="text-xs uppercase tracking-widest text-gray-400 hover:text-white transition-all font-semibold hover:text-akshaya-gold">The Story</a>
+                    <a href="#menu" class="text-xs uppercase tracking-widest text-gray-400 hover:text-white transition-all font-semibold hover:text-akshaya-gold">Menu</a>
+                    <a href="#gallery" class="text-xs uppercase tracking-widest text-gray-400 hover:text-white transition-all font-semibold hover:text-akshaya-gold">Gallery</a>
+                    <a href="#services" class="text-xs uppercase tracking-widest text-gray-400 hover:text-white transition-all font-semibold hover:text-akshaya-gold">Services</a>
+                    <a href="tel:+919440115230" class="border border-akshaya-gold/40 text-akshaya-gold hover:bg-akshaya-gold hover:text-black px-8 py-3 rounded-none font-bold transition-all text-[10px] tracking-widest uppercase">
+                        Reservations
+                    </a>
+                </div>
+
+                <!-- Mobile Trigger -->
+                <button id="mobile-btn" class="md:hidden text-akshaya-gold text-2xl p-2">
+                    <i class="fa-solid fa-bars-staggered"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black border-t border-white/10 absolute w-full left-0">
+            <div class="flex flex-col p-6 space-y-4">
+                <a href="#home" class="text-sm uppercase tracking-widest text-gray-400 hover:text-akshaya-gold">Home</a>
+                <a href="#story" class="text-sm uppercase tracking-widest text-gray-400 hover:text-akshaya-gold">The Story</a>
+                <a href="#menu" class="text-sm uppercase tracking-widest text-gray-400 hover:text-akshaya-gold">Menu</a>
+                <a href="#gallery" class="text-sm uppercase tracking-widest text-gray-400 hover:text-akshaya-gold">Gallery</a>
+                <a href="#services" class="text-sm uppercase tracking-widest text-gray-400 hover:text-akshaya-gold">Services</a>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-screen flex items-center relative overflow-hidden">
+        <!-- Dark overlay to ensure text readability -->
+        <div class="absolute inset-0 bg-black/40 z-0"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 w-full relative z-10 pt-20">
+            <div class="reveal active">
+                <span class="inline-block text-akshaya-gold font-bold tracking-[0.4em] uppercase text-xs mb-6 border-l-2 border-akshaya-gold pl-4">Telangana's Culinary Pride</span>
+                <h1 class="font-serif text-5xl md:text-8xl lg:text-9xl font-medium leading-[0.9] mb-8 text-white">
+                    Authentic <br>
+                    <span class="italic font-script text-akshaya-gold text-6xl md:text-9xl block mt-4 pr-4">Family Restaurant</span>
+                </h1>
+                <p class="text-gray-300 text-lg md:text-xl max-w-xl font-light leading-relaxed mb-12">
+                    Where age-old spice secrets meet contemporary luxury. Experience the soul of Siddipet on your plate.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-6">
+                    <a href="#menu" class="bg-akshaya-gold text-black px-10 py-5 text-[11px] font-bold uppercase tracking-[0.2em] hover:bg-white transition-all shadow-premium text-center">
+                        Explore the Menu
+                    </a>
+                    <a href="#gallery" class="border border-white/20 text-white px-10 py-5 text-[11px] font-bold uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-all backdrop-blur-sm text-center">
+                        View Ambience
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 text-akshaya-gold/50 z-10">
+            <span class="text-[9px] uppercase tracking-[0.3em] font-bold rotate-90 mb-8">Scroll</span>
+            <div class="w-px h-16 bg-gradient-to-b from-akshaya-gold/50 to-transparent"></div>
+        </div>
+    </section>
+
+    <!-- Our Legacy (Story) -->
+    <section id="story" class="py-32 bg-surface-dark relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
+                <div class="relative reveal">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img src="https://lh3.googleusercontent.com/gps-cs-s/AG0ilSyaBjgfzqcXGcKsT_jh4NQ2hVWIRrwqJ5eHZZZAZk-yfA-C5dwCpbX0hw1wHM4WtjWnFztlQoMtjwGaHjlfJq7ylrtGDu2PiDl9rn8NomegeMCoEhHZkbtlO82btfpO9bZewbUHrA=s1360-w1360-h1020-rw" alt="Premium Interior" class="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-1000">
+                    </div>
+                    <div class="absolute -bottom-10 -right-10 w-2/3 aspect-square bg-surface-light p-10 hidden md:flex flex-col justify-center border border-akshaya-gold/20 shadow-premium">
+                        <span class="text-akshaya-gold font-script text-4xl mb-4">18 Years</span>
+                        <h4 class="font-header text-xl tracking-widest text-white mb-4">A Legacy of Quality</h4>
+                        <p class="text-gray-400 text-sm leading-relaxed font-light italic">"Our kitchen is a temple where tradition is the only law we follow."</p>
+                    </div>
+                </div>
+                <div class="reveal">
+                    <span class="text-akshaya-gold font-bold tracking-[0.3em] uppercase text-[10px] mb-4 block">The Akshaya Heritage</span>
+                    <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl text-white mb-8 leading-tight">Crafting Memories <br><span class="italic text-gray-500">Since 2007</span></h2>
+                    <div class="space-y-6 text-gray-400 font-light leading-relaxed text-lg">
+                        <p>Established with a vision to redefine family dining in Siddipet, Akshaya has become synonymous with authentic Telangana hospitality and uncompromising quality.</p>
+                        <p>Every spice is hand-picked, every recipe is a whispered secret from the past, and every guest is treated like royalty. We don't just serve food; we serve culture.</p>
+                    </div>
+                    <div class="mt-12 grid grid-cols-2 gap-8">
+                        <div>
+                            <span class="block text-3xl font-serif text-white mb-1">4.8k+</span>
+                            <span class="text-[10px] uppercase tracking-widest text-akshaya-gold font-bold">Five Star Reviews</span>
+                        </div>
+                        <div>
+                            <span class="block text-3xl font-serif text-white mb-1">150+</span>
+                            <span class="text-[10px] uppercase tracking-widest text-akshaya-gold font-bold">Unique Dishes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-32 bg-black overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 text-center mb-20 reveal">
+            <span class="text-akshaya-gold font-bold tracking-[0.3em] uppercase text-[10px]">A Visual Journey</span>
+            <h2 class="font-serif text-4xl md:text-5xl text-white mt-4 premium-border pb-6">Gallery of <span class="italic text-gray-500">Excellence</span></h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 px-4 h-auto md:h-[800px] reveal">
+            <div class="md:col-span-2 md:row-span-2 gallery-item relative overflow-hidden group cursor-pointer h-64 md:h-auto">
+                <img src="https://lh3.googleusercontent.com/gps-cs-s/AG0ilSyVsiI9S_s59vEzroh_GjY9TVzUItRlbFqGbgZtREDTHwQXz3b3OPKbVkyoCY52-eQ0HCKRHMbk4K9KFgNQ34iLWROwQox3p7XEvqU9pj8MLPG_KfHeUT7Z0AAbGY8fCwkOzQS0=s1360-w1360-h1020-rw" class="w-full h-full object-cover transition-transform duration-1000" alt="Dining Room">
+                <div class="gallery-overlay absolute inset-0 bg-black/60 opacity-0 transition-opacity duration-500 flex items-center justify-center">
+                    <span class="text-white tracking-[0.5em] uppercase text-xs font-bold border-b border-akshaya-gold pb-2">The Grand Hall</span>
+                </div>
+            </div>
+            <div class="gallery-item relative overflow-hidden group cursor-pointer h-64 md:h-auto">
+                <img src="https://lh3.googleusercontent.com/gps-cs-s/AG0ilSyQt7tOBB3DXGkkPGrZGUt6fulOYqD3AbYqjbZrlk26-Xc1jrKtYvsqBgNGUYOyuZcBsvSVQPnQjdz9pIY0p-uLjpDbOKtfbexPQL-Mehm3uytOrOka04p95oRZ968jLJ2VV6qm=s1360-w1360-h1020-rw" class="w-full h-full object-cover transition-transform duration-1000" alt="Special Biryani">
+                <div class="gallery-overlay absolute inset-0 bg-black/60 opacity-0 transition-opacity duration-500 flex items-center justify-center">
+                    <span class="text-white tracking-[0.5em] uppercase text-xs font-bold border-b border-akshaya-gold pb-2">Signature Pot Biryani</span>
+                </div>
+            </div>
+            <div class="gallery-item relative overflow-hidden group cursor-pointer h-64 md:h-auto">
+                <img src="https://lh3.googleusercontent.com/gps-cs-s/AG0ilSwaRj35YKJv37wxgsBCNGHouT5ll6hVxdCt-ATx61Pa2SyO8HujmRtGmHjeLQXH-OIBHA4XMeZJjSNu039Hg0zsSG3P8XmEri2kPgb-Y-jERJBGospHmZyEDUcAwPsXK6iSuXlN=s1360-w1360-h1020-rw" class="w-full h-full object-cover transition-transform duration-1000" alt="Service">
+                <div class="gallery-overlay absolute inset-0 bg-black/60 opacity-0 transition-opacity duration-500 flex items-center justify-center">
+                    <span class="text-white tracking-[0.5em] uppercase text-xs font-bold border-b border-akshaya-gold pb-2">Craft Cocktails</span>
+                </div>
+            </div>
+            <div class="md:col-span-2 gallery-item relative overflow-hidden group cursor-pointer h-64 md:h-auto">
+                <img src="https://lh3.googleusercontent.com/gps-cs-s/AG0ilSy_WAy877U7JsY_dSwR6wGPwHnUC-hfO3Ey0xp0wWu5_sybCIgykDa-alTIDoMgrWeAZ_352CnQOBJe6GB1quH0j7EGBhH14P8K6_FyP29n7kGBcBPHikjuGiATxfuFWcLPRzF7uw=s1360-w1360-h1020-rw" class="w-full h-full object-cover transition-transform duration-1000" alt="Food Detail">
+                <div class="gallery-overlay absolute inset-0 bg-black/60 opacity-0 transition-opacity duration-500 flex items-center justify-center">
+                    <span class="text-white tracking-[0.5em] uppercase text-xs font-bold border-b border-akshaya-gold pb-2">Chef's Table</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section (Beyond Dining) -->
+    <section id="services" class="py-32 bg-surface-dark relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20 reveal">
+                <span class="text-akshaya-gold font-bold tracking-[0.3em] uppercase text-[10px]">Beyond Dining</span>
+                <h2 class="font-serif text-4xl md:text-5xl text-white mt-4">Our <span class="italic text-gray-500">Exquisite Services</span></h2>
+                <p class="text-gray-500 mt-6 max-w-2xl mx-auto font-light leading-relaxed">We offer more than just a meal; we offer an experience tailored to your needs.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Banquet Halls -->
+                <div class="group p-10 bg-surface-light border border-white/5 hover:border-akshaya-gold/30 transition-all duration-500 reveal">
+                    <div class="w-16 h-16 border border-akshaya-gold/30 flex items-center justify-center text-akshaya-gold mb-8 group-hover:bg-akshaya-gold group-hover:text-black transition-all">
+                        <i class="fa-solid fa-hotel text-2xl"></i>
+                    </div>
+                    <h3 class="font-header text-xl text-white tracking-widest mb-6">Banquet Halls</h3>
+                    <p class="text-gray-500 text-sm font-light leading-loose mb-8">
+                        AC Banquet halls available for Engagements, Birthday Parties, and Corporate Meetings with a capacity of 50 to 200 PAX.
+                    </p>
+                    <a href="#" class="text-[10px] uppercase tracking-[0.3em] font-bold text-akshaya-gold hover:text-white transition-colors">Enquire Now</a>
+                </div>
+
+                <!-- Outdoor Catering -->
+                <div class="group p-10 bg-surface-light border border-white/5 hover:border-akshaya-gold/30 transition-all duration-500 reveal">
+                    <div class="w-16 h-16 border border-akshaya-gold/30 flex items-center justify-center text-akshaya-gold mb-8 group-hover:bg-akshaya-gold group-hover:text-black transition-all">
+                        <i class="fa-solid fa-utensils text-2xl"></i>
+                    </div>
+                    <h3 class="font-header text-xl text-white tracking-widest mb-6">Outdoor Catering</h3>
+                    <p class="text-gray-500 text-sm font-light leading-loose mb-8">
+                        Bring the Akshaya experience to your venue. We cater for weddings, receptions, and ceremonies within 50km radius.
+                    </p>
+                    <a href="#" class="text-[10px] uppercase tracking-[0.3em] font-bold text-akshaya-gold hover:text-white transition-colors">View Menu</a>
+                </div>
+
+                <!-- Bulk Takeaway -->
+                <div class="group p-10 bg-surface-light border border-white/5 hover:border-akshaya-gold/30 transition-all duration-500 reveal">
+                    <div class="w-16 h-16 border border-akshaya-gold/30 flex items-center justify-center text-akshaya-gold mb-8 group-hover:bg-akshaya-gold group-hover:text-black transition-all">
+                        <i class="fa-solid fa-box-archive text-2xl"></i>
+                    </div>
+                    <h3 class="font-header text-xl text-white tracking-widest mb-6">Bulk Takeaway</h3>
+                    <p class="text-gray-500 text-sm font-light leading-loose mb-8">
+                        Order Family Packs and Jumbo Packs for your small home gatherings. Special discounts on bulk orders above ₹2000.
+                    </p>
+                    <a href="#" class="text-[10px] uppercase tracking-[0.3em] font-bold text-akshaya-gold hover:text-white transition-colors">Order Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-32 bg-black relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-3 gap-20 items-center">
+                <div class="reveal">
+                    <span class="text-akshaya-gold font-bold tracking-[0.3em] uppercase text-[10px]">Testimonials</span>
+                    <h2 class="font-serif text-4xl md:text-5xl text-white mt-4 leading-tight">What our <br><span class="italic text-gray-500">Guests Say</span></h2>
+                </div>
+                <div class="lg:col-span-2 grid md:grid-cols-2 gap-12">
+                    <!-- Testimonial 1 -->
+                    <div class="reveal">
+                        <div class="text-akshaya-gold mb-6 flex gap-1 text-[10px]">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-300 font-light italic text-lg leading-relaxed mb-8">
+                            "Best Biryani in Siddipet hands down. The ambiance is great for families and the staff is very polite. Highly recommend the Mirchi Palav."
+                        </p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-full bg-surface-light border border-akshaya-gold/20 flex items-center justify-center text-akshaya-gold font-header text-xs">RK</div>
+                            <span class="font-header text-xs tracking-widest text-white uppercase">Rajesh Kumar</span>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="reveal">
+                        <div class="text-akshaya-gold mb-6 flex gap-1 text-[10px]">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-300 font-light italic text-lg leading-relaxed mb-8">
+                            "We celebrated my daughter's birthday here. The banquet hall arrangement was perfect and the food was served hot and fresh."
+                        </p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-full bg-surface-light border border-akshaya-gold/20 flex items-center justify-center text-akshaya-gold font-header text-xs">SG</div>
+                            <span class="font-header text-xs tracking-widest text-white uppercase">Sravani G.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Spotlight -->
+    <section id="menu" class="py-32 bg-surface-dark relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal">
+                <div>
+                    <span class="text-akshaya-gold font-bold tracking-[0.3em] uppercase text-[10px]">Chef's Selection</span>
+                    <h2 class="font-serif text-4xl md:text-6xl text-white mt-4">Menu <span class="italic text-gray-500">Highlights</span></h2>
+                </div>
+                <a href="#" class="text-xs uppercase tracking-[0.3em] text-akshaya-gold border-b border-akshaya-gold/30 pb-2 hover:border-akshaya-gold transition-all mt-6 md:mt-0">View Full Menu</a>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
+                <div class="group reveal">
+                    <div class="aspect-square overflow-hidden mb-6 relative">
+                        <img src="https://vismaifood.com/storage/app/uploads/public/980/eb9/ed6/thumb__1200_0_0_0_auto.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Biryani">
+                    </div>
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="font-header text-lg text-white tracking-widest group-hover:text-akshaya-gold transition-colors">Special Mutton Biryani</h3>
+                        <span class="text-akshaya-gold font-serif">₹450</span>
+                    </div>
+                </div>
+                <div class="group reveal">
+                    <div class="aspect-square overflow-hidden mb-6 relative">
+                        <img src="https://i.pinimg.com/736x/26/5f/1d/265f1d79294516575df55567867bc3b9.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Kebab">
+                    </div>
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="font-header text-lg text-white tracking-widest group-hover:text-akshaya-gold transition-colors">Miriyala Kabab</h3>
+                        <span class="text-akshaya-gold font-serif">₹320</span>
+                    </div>
+                </div>
+                <div class="group reveal">
+                    <div class="aspect-square overflow-hidden mb-6 relative">
+                        <img src="https://i.pinimg.com/1200x/fd/ee/90/fdee90a6b28574b889dc59b018d4d66f.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Curry">
+                    </div>
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="font-header text-lg text-white tracking-widest group-hover:text-akshaya-gold transition-colors">Gongura Mutton</h3>
+                        <span class="text-akshaya-gold font-serif">₹380</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white pt-32 pb-16 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-16 mb-24">
+                <div class="col-span-2">
+                    <span class="font-header text-3xl font-bold tracking-widest block mb-8">AKSHAYA</span>
+                    <p class="text-gray-500 max-w-sm font-light leading-loose text-sm mb-8">
+                        Elevating the culinary landscape of Siddipet since 2007. Preserving the heritage of Indian cuisine while delivering a luxury dining experience.
+                    </p>
+                    <div class="flex gap-6 text-xl">
+                        <a href="#" class="text-gray-600 hover:text-akshaya-gold transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="text-gray-600 hover:text-akshaya-gold transition-colors"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" class="text-gray-600 hover:text-akshaya-gold transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h5 class="font-header text-[11px] tracking-[0.4em] uppercase text-akshaya-gold mb-8">Experience</h5>
+                    <ul class="space-y-4 text-sm text-gray-500 font-light">
+                        <li><a href="#services" class="hover:text-white transition-colors">Banquets</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">Catering</a></li>
+                        <li><a href="#gallery" class="hover:text-white transition-colors">Visuals</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-header text-[11px] tracking-[0.4em] uppercase text-akshaya-gold mb-8">Contact</h5>
+                    <address class="not-italic text-sm text-gray-500 font-light space-y-4">
+                        <p>Opp. New Bus Stand, Siddipet, Telangana</p>
+                        <p class="text-white">+91 94401 15230</p>
+                        <p>reservations@akshaya.com</p>
+                    </address>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/5 pt-12 flex flex-col md:row justify-between items-center gap-6">
+                <p class="text-[10px] tracking-widest text-gray-600 uppercase">&copy; 2025 Akshaya Hospitality Group. All Rights Reserved.</p>
+                <div class="flex gap-8 text-[10px] tracking-widest text-gray-600 uppercase">
+                    <a href="#" class="hover:text-white transition-colors">Privacy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // DOM Content Loaded to ensure scripts are ready
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu Toggle
+            const mobileBtn = document.getElementById('mobile-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (mobileBtn && mobileMenu) {
+                mobileBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            // Scroll Animation Observer
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+            // Navbar Background Transition
+            const nav = document.getElementById('navbar');
+            if (nav) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 50) {
+                        nav.classList.add('py-2');
+                        nav.style.background = "rgba(10, 10, 10, 0.95)";
+                    } else {
+                        nav.classList.remove('py-2');
+                        nav.style.background = "rgba(15, 15, 15, 0.85)";
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
